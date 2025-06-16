@@ -1,38 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using InvestigationGame.Entities.Pepoles;
 using InvestigationGame.Entities.Sensors;
 
-namespace InvestigationGame.Entities.Pepoles
+namespace InvestigationGame
 {
-    internal class IranianAgent
+    internal static class ConnectingSensors
     {
-        public string Rank { get; set; }
-        
-        public List<string> SensorWeakSpot { get; set; }
         static Random rnd = new Random();
         //static List<Sensor> ExistingSensors = new List<Sensor>();
         public static string[] ExistingSensors = { "Audio", "Thermal" };
 
-        public IranianAgent(string Rank) 
+        public static List<string> SensorGenerator(IranianAgent agent)
         {
-            this.Rank = Rank;
-            SensorWeakSpot = SensorGenerator();
-        }
-
-
-
-        public  List<string> SensorGenerator()
-        {
-            int ListLength = 0;
+            int ListLength  = 0;
             List<string> SensorsList = new List<string>();
-            if (Rank == "Junior")
+            if(agent.Rank == "Junior")
             {
                 ListLength = 2;
             }
-            for (int i = 0; i < ListLength; i++)
+            for(int i  = 0;  i<ListLength;i++)
             {
                 SensorsList.Add(ExistingSensors[rnd.Next(0, ExistingSensors.Count())]);
             }
@@ -40,3 +31,4 @@ namespace InvestigationGame.Entities.Pepoles
         }
     }
 }
+
