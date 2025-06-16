@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace InvestigationGame.Entities.Pepoles
 {
+
+    // People's father Department
     internal abstract class Pepole
     {
         public int ID { get; set; }

@@ -7,6 +7,7 @@ using InvestigationGame.Entities.Pepoles;
 
 namespace InvestigationGame.Entities.Sensors
 {
+    // Sensors' father class
     internal abstract class Sensor
     {
         public string SensorType { get; set; }
@@ -18,6 +19,8 @@ namespace InvestigationGame.Entities.Sensors
             this.SensorName = SensorName;
         }
 
+
+        // Enabling the sensor checks whether it can be enabled.
         public virtual bool Activate(IranianAgent agent)
         {
             Console.WriteLine($"Sensor {SensorName} is Active ");

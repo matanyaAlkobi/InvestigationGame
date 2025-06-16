@@ -9,9 +9,11 @@ using InvestigationGame.Entities.Sensors;
 
 namespace InvestigationGame.SystemOperation
 {
+    //A department responsible for the game's operating system
     internal class Game
     {
-        public  static void Start()
+        // Starting the game
+        public static void Start()
         {
             List<Sensor> SensorsFactory = new List<Sensor> { new AudioSensor(), new ThermalSensor() };
             IranianAgent agent = new IranianAgent("Junior");
