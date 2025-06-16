@@ -9,6 +9,7 @@ using InvestigationGame.Entities.Sensors;
 
 namespace InvestigationGame
 {
+    // A class that gives agents random weaknesses
     internal static class ConnectingSensors
     {
         static Random rnd = new Random();
