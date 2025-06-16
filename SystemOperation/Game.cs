@@ -16,6 +16,7 @@ namespace InvestigationGame.SystemOperation
             Console.WriteLine("Welcome  Interrogator !!!");
 
 
+
         }
     }
 }
