@@ -10,33 +10,40 @@ namespace InvestigationGame.Entities.Pepoles
     internal class IranianAgent
     {
         public string Rank { get; set; }
-        
+
         public List<string> SensorWeakSpot { get; set; }
-        static Random rnd = new Random();
-        //static List<Sensor> ExistingSensors = new List<Sensor>();
-        public static string[] ExistingSensors = { "Audio", "Thermal" };
+
+        public Sensor[] SensorDamage { get; set; }
+
 
         public IranianAgent(string Rank) 
         {
             this.Rank = Rank;
-            SensorWeakSpot = SensorGenerator();
+            //SensorWeakSpot = ConnectingSensors.SensorGenerator(this);
+            SensorWeakSpot = new List<string> { "Audio", "Thermal" };
+            SensorDamage = new Sensor[SensorWeakSpot.Count];
         }
 
 
-
-        public  List<string> SensorGenerator()
+        public int Active(Sensor sensor, int index)
         {
-            int ListLength = 0;
-            List<string> SensorsList = new List<string>();
-            if (Rank == "Junior")
-            {
-                ListLength = 2;
-            }
-            for (int i = 0; i < ListLength; i++)
-            {
-                SensorsList.Add(ExistingSensors[rnd.Next(0, ExistingSensors.Count())]);
-            }
-            return SensorsList;
+            int counter = 0;
+
+
+                if (sensor.Activate(this) && SensorWeakSpot[index] == sensor.SensorName)
+                {
+                    SensorDamage[index] = sensor;
+                }
+                for (int i = 0; i < SensorDamage.Length; i++)
+                {
+                    if (SensorDamage[i] != null)
+                        ++counter;
+                }
+
+            return counter;
         }
+
+
+
     }
 }

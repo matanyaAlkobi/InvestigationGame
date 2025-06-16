@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InvestigationGame.Entities.Pepoles;
 
 namespace InvestigationGame.Entities.Sensors
 {
@@ -17,6 +18,14 @@ namespace InvestigationGame.Entities.Sensors
             this.SensorName = SensorName;
         }
 
-        public virtual void Activate() { }
+        public virtual bool Activate(IranianAgent agent)
+        {
+            Console.WriteLine($"Sensor {SensorName} is Active ");
+            if (agent.SensorWeakSpot.Contains(SensorName))
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

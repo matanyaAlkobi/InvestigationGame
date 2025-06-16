@@ -8,7 +8,7 @@ namespace InvestigationGame.Entities.Sensors
 {
     internal class ThermalSensor : Sensor
     {
-        public ThermalSensor(string SensorType = "SensorType", string SensorName = "AudioSensor") : base(SensorType, SensorName)
+        public ThermalSensor(string SensorType = "Thermal", string SensorName = "Thermal") : base(SensorType, SensorName)
         {
         }
     }
