@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using InvestigationGame.Entities.Pepoles;
+using InvestigationGame.SystemOperation;
 
 namespace InvestigationGame
 {
@@ -11,9 +12,11 @@ namespace InvestigationGame
     {
         static void Main(string[] args)
         {
+            Game.Start();
+
+
             List<string> hh = new List<string>();
             IranianAgent ia = new IranianAgent("Junior");
-            hh = ia.SensorGenerator();
             foreach(string item in hh)
             {
                 Console.WriteLine(item);

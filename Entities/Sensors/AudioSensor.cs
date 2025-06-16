@@ -10,7 +10,7 @@ namespace InvestigationGame.Entities.Sensors
     {
 
 
-        public AudioSensor(string SensorType = "SensorType", string  SensorName = "AudioSensor") :base(SensorType, SensorName)
+        public AudioSensor(string SensorType = "Audio", string  SensorName = "Audio") :base(SensorType, SensorName)
         {
         }
     }
