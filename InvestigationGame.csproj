@@ -43,11 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Pepoles\IranianAgent.cs" />
+    <Compile Include="Entities\Pepoles\Pepole.cs" />
+    <Compile Include="Entities\Sensors\AudioSensor.cs" />
+    <Compile Include="Entities\Sensors\Sensor.cs" />
+    <Compile Include="Entities\Sensors\ThermalSensor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
