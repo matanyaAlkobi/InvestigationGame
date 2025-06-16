@@ -16,5 +16,7 @@ namespace InvestigationGame.Entities.Sensors
             this.SensorType = SensorType;
             this.SensorName = SensorName;
         }
+
+        public virtual void Activate() { }
     }
 }
