@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using InvestigationGame.Entities.Pepoles;
@@ -16,6 +18,7 @@ namespace InvestigationGame.SystemOperation
         public static void Start()
         {
             List<Sensor> SensorsFactory = new List<Sensor> { new AudioSensor(), new ThermalSensor() };
+
             IranianAgent agent = new IranianAgent("Junior");
 
             Console.WriteLine("Welcome  Interrogator !!!");
@@ -23,6 +26,10 @@ namespace InvestigationGame.SystemOperation
             do
             {
                 Console.WriteLine($"The agent has {agent.SensorWeakSpot.Count} sensors");
+                foreach (var item in agent.SensorWeakSpot)
+                {
+                    Console.WriteLine(item);
+                }
                 Console.WriteLine("choose index");
                 int index = int.Parse(Console.ReadLine());
                 Console.WriteLine("enter a sensor  name");
@@ -50,7 +57,27 @@ namespace InvestigationGame.SystemOperation
                 }
             }
             while (true);
-            
+
+
+
+        }
+
+        private static void SetIndex(IranianAgent agent)
+        {;
+            bool check = false;
+            int index;
+            do
+            {
+                string input = Console.ReadLine();
+
+                if (int.TryParse(input, out index))
+                {
+
+                    check = true;
+                }
+
+            }
+            while (!check);
 
         }
     }
