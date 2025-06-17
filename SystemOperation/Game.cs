@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using InvestigationGame.Entities.Pepoles;
 using InvestigationGame.Entities.Sensors;
+using InvestigationGame.SetForGame;
 
 namespace InvestigationGame.SystemOperation
 {
@@ -18,67 +19,51 @@ namespace InvestigationGame.SystemOperation
         public static void Start()
         {
             List<Sensor> SensorsFactory = new List<Sensor> { new AudioSensor(), new ThermalSensor() };
-
             IranianAgent agent = new IranianAgent("Junior");
-
             Console.WriteLine("Welcome  Interrogator !!!");
-
+            bool exposed;
             do
             {
                 Console.WriteLine($"The agent has {agent.SensorWeakSpot.Count} sensors");
-                foreach (var item in agent.SensorWeakSpot)
-                {
-                    Console.WriteLine(item);
-                }
-                Console.WriteLine("choose index");
-                int index = int.Parse(Console.ReadLine());
-                Console.WriteLine("enter a sensor  name");
-                string sensorname = Console.ReadLine();
+                int index =  GameInputManager.GetValidSensorIndexFromUser(agent);
+                string SensorName = GameInputManager.SetSensorName(agent);
 
-                int counter = 0;
-                switch (sensorname)
-                {
-                    case "Audio":
-                        AudioSensor aud = new AudioSensor();
-                        counter = agent.Active(aud, index);
-                        Console.WriteLine($"You hit in {counter} / {agent.SensorWeakSpot.Count}");
-                        break;
+                 exposed = TryExposeAgentWithSensor(SensorName, index, agent);
 
-                    case "Thermal":
-                        ThermalSensor th = new ThermalSensor();
-                        counter = agent.Active(th, index);
-                        Console.WriteLine($"You hit in {counter} / {agent.SensorWeakSpot.Count}");
-                        break;
-                }
-                if (counter == agent.SensorWeakSpot.Count)
-                {
-                    Console.WriteLine("The agent was exposed.");
-                    break;
-                }
             }
-            while (true);
-
-
-
+            while (!exposed);
         }
 
-        private static void SetIndex(IranianAgent agent)
-        {;
-            bool check = false;
-            int index;
-            do
+
+        // /// <summary>
+        /// Activates a sensor on the agent at a given index and checks if the agent is fully exposed.
+        /// </summary>
+        /// <param name="SensorName">The name of the sensor to activate.</param>
+        /// <param name="index">The index in the agent's sensor array to activate.</param>
+        /// <param name="agent">The IranianAgent on which the sensor is activated.</param>
+        /// <returns>True if the agent has been fully exposed; otherwise, false.</returns>
+        private static bool TryExposeAgentWithSensor(string SensorName,int index, IranianAgent agent)
+        {
+            bool exposed = false;
+            int counter = 0;
+            switch (SensorName)
             {
-                string input = Console.ReadLine();
+                case "Audio":
+                    counter = agent.Active(new AudioSensor(), index);
+                    Console.WriteLine($"You hit in {counter} / {agent.SensorWeakSpot.Count}");
+                    break;
 
-                if (int.TryParse(input, out index))
-                {
-
-                    check = true;
-                }
-
+                case "Thermal":
+                    counter = agent.Active(new ThermalSensor(), index);
+                    Console.WriteLine($"You hit in {counter} / {agent.SensorWeakSpot.Count}");
+                    break;
             }
-            while (!check);
-
+            if (counter == agent.SensorWeakSpot.Count)
+            {
+                Console.WriteLine("The agent was exposed.");
+                exposed = true;
+            }
+            return exposed;
         }
     }
 }
