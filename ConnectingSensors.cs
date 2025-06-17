@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -17,19 +18,24 @@ namespace InvestigationGame
         //static List<Sensor> ExistingSensors = new List<Sensor>();
         public static string[] ExistingSensors = { "Audio", "Thermal", "Pulse" };
 
-        public static List<string> SensorGenerator(IranianAgent agent)
+        public static List<string> SensorGenerator(FootSoldier agent)
         {
             int ListLength  = 0;
             List<string> SensorsList = new List<string>();
-            if(agent.Rank == "Junior")
+            if(agent.Rank == "FootSoldier")
             {
                 ListLength = 2;
             }
-            for(int i  = 0;  i<ListLength;i++)
+            else if(agent.Rank == "SquadLeader")
             {
-                SensorsList.Add(ExistingSensors[rnd.Next(0, ExistingSensors.Count())]);
+                ListLength = 4;
             }
-            return SensorsList;
+                
+                for (int i = 0; i < ListLength; i++)
+                {
+                    SensorsList.Add(ExistingSensors[rnd.Next(0, ExistingSensors.Count())]);
+                }
+                return SensorsList;
         }
     }
 }

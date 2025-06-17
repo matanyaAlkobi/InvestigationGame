@@ -28,21 +28,27 @@ namespace InvestigationGame.Entities.Sensors
         }
 
         /// <summary>
-        /// Activates the sensor for a given agent. Breaks after 3 uses.
+        /// Activates the sensor at a specific index. Increases usage count only on a successful hit. 
+        /// Sensor breaks after 3 successful activations.
         /// </summary>
-        /// <param name="agent">The Iranian agent to test against.</param>
-        /// <returns>True if the sensor is broken, otherwise false.</returns>
-        public override bool Activate(IranianAgent agent)
+        /// <param name="agent">The agent to scan.</param>
+        /// <returns>True if the sensor hits at the target index; otherwise, false.</returns>
+        public override bool Activate(FootSoldier agent,int index)
         {
-            if (agent.SensorWeakSpot.Contains(SensorName))
-            {
-                ++ActivateCount;
-                Console.WriteLine(($"Sensor {SensorName} is Active for the {ActivateCount} time"));
-            }
-
             if (ActivateCount >= 3)
-            {  
-                Console.WriteLine( ("Sensor has broken after 3 activations."));
+            {
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine(("Sensor has broken after 3 activations."));
+                Console.WriteLine("If an agent has such a weakness, you've lost the investigation.");
+                Console.ResetColor();
+                return false;
+            }
+            ++ActivateCount;
+            Console.WriteLine(($"Sensor {SensorName} is Active for the {ActivateCount} time"));
+            if (agent.SensorWeakSpot[index] == SensorName)
+            {
+                --ActivateCount;
+                Console.WriteLine(($"Because of the damage, the sensor's number of times decreased to {ActivateCount}."));
                 return true;
             }
             return false;
