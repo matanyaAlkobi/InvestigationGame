@@ -44,8 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectingSensors.cs" />
-    <Compile Include="Entities\Pepoles\IranianAgent.cs" />
-    <Compile Include="Entities\Pepoles\Pepole.cs" />
+    <Compile Include="Entities\Agents\FootSoldier.cs" />
+    <Compile Include="Entities\Agents\Pepole.cs" />
+    <Compile Include="Entities\Agents\SquadLeader.cs" />
     <Compile Include="Entities\Sensors\AudioSensor.cs" />
     <Compile Include="Entities\Sensors\PulseSensor.cs" />
     <Compile Include="Entities\Sensors\Sensor.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SetForGame\GameInputManager.cs" />
+    <Compile Include="SystemOperation\AgentExposureAnalyzer.cs" />
     <Compile Include="SystemOperation\Game.cs" />
   </ItemGroup>
   <ItemGroup>

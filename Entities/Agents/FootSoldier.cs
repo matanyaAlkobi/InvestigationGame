@@ -9,7 +9,7 @@ namespace InvestigationGame.Entities.Pepoles
 {
 
     // Creating an Iranian agent
-    internal class IranianAgent
+    internal class FootSoldier
     {
         public string Rank { get; set; }
 
@@ -18,9 +18,9 @@ namespace InvestigationGame.Entities.Pepoles
         public Sensor[] SensorDamage { get; set; }
 
 
-        public IranianAgent(string Rank) 
+        public FootSoldier(string rank = "FootSoldier") 
         {
-            this.Rank = Rank;
+            this.Rank = rank;
 
             SensorWeakSpot = ConnectingSensors.SensorGenerator(this);   // Adding sensors to the list
             //SensorWeakSpot = new List<string> { "Audio", "Thermal" };
@@ -28,16 +28,13 @@ namespace InvestigationGame.Entities.Pepoles
         }
 
         // Activating the sensor and checking whether the agent has any weaknesses
-        public int Active(Sensor sensor, int index)
+        public virtual int Active(Sensor sensor, int index)
         {
             int counter = 0;
 
-            if (SensorWeakSpot[index] == sensor.SensorName)
+            if (sensor.Activate(this,index) &&  SensorWeakSpot[index] == sensor.SensorName)
             {
-                if (sensor.Activate(this))
-                {
                     SensorDamage[index] = sensor;
-                }
             }
                 for (int i = 0; i < SensorDamage.Length; i++)
                 {
