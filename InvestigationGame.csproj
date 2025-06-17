@@ -47,6 +47,7 @@
     <Compile Include="Entities\Pepoles\IranianAgent.cs" />
     <Compile Include="Entities\Pepoles\Pepole.cs" />
     <Compile Include="Entities\Sensors\AudioSensor.cs" />
+    <Compile Include="Entities\Sensors\PulseSensor.cs" />
     <Compile Include="Entities\Sensors\Sensor.cs" />
     <Compile Include="Entities\Sensors\ThermalSensor.cs" />
     <Compile Include="Program.cs" />

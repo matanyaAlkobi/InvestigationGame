@@ -59,7 +59,7 @@ namespace InvestigationGame.SetForGame
             do
             {
                 Console.WriteLine("The agent has these sensors.");
-                foreach (var item in ConnectingSensors.ExistingSensors)
+                foreach (var item in agent.SensorWeakSpot)
                 {
                     Console.WriteLine(item);
                 }

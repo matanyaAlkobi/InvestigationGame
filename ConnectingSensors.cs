@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -14,7 +15,7 @@ namespace InvestigationGame
     {
         static Random rnd = new Random();
         //static List<Sensor> ExistingSensors = new List<Sensor>();
-        public static string[] ExistingSensors = { "Audio", "Thermal" };
+        public static string[] ExistingSensors = { "Audio", "Thermal", "Pulse" };
 
         public static List<string> SensorGenerator(IranianAgent agent)
         {

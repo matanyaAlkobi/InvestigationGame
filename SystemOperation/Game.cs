@@ -18,7 +18,7 @@ namespace InvestigationGame.SystemOperation
         // Starting the game
         public static void Start()
         {
-            List<Sensor> SensorsFactory = new List<Sensor> { new AudioSensor(), new ThermalSensor() };
+            //List<Sensor> SensorsFactory = new List<Sensor> { new AudioSensor(), new ThermalSensor() };
             IranianAgent agent = new IranianAgent("Junior");
             Console.WriteLine("Welcome  Interrogator !!!");
             bool exposed;
@@ -26,7 +26,7 @@ namespace InvestigationGame.SystemOperation
             {
                 Console.WriteLine($"The agent has {agent.SensorWeakSpot.Count} sensors");
                 int index =  GameInputManager.GetValidSensorIndexFromUser(agent);
-                string SensorName = GameInputManager.SetSensorName(agent);
+                string SensorName = GameInputManager.GetValidSensorNameFromUser(agent);
 
                  exposed = TryExposeAgentWithSensor(SensorName, index, agent);
 
@@ -55,6 +55,11 @@ namespace InvestigationGame.SystemOperation
 
                 case "Thermal":
                     counter = agent.Active(new ThermalSensor(), index);
+                    Console.WriteLine($"You hit in {counter} / {agent.SensorWeakSpot.Count}");
+                    break;
+
+                case "Pulse":
+                    counter = agent.Active(new PulseSensor(), index);
                     Console.WriteLine($"You hit in {counter} / {agent.SensorWeakSpot.Count}");
                     break;
             }

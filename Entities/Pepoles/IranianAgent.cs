@@ -32,11 +32,13 @@ namespace InvestigationGame.Entities.Pepoles
         {
             int counter = 0;
 
-
-                if (sensor.Activate(this) && SensorWeakSpot[index] == sensor.SensorName)
+            if (SensorWeakSpot[index] == sensor.SensorName)
+            {
+                if (sensor.Activate(this))
                 {
                     SensorDamage[index] = sensor;
                 }
+            }
                 for (int i = 0; i < SensorDamage.Length; i++)
                 {
                     if (SensorDamage[i] != null)
