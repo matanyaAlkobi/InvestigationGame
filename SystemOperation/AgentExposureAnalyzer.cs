@@ -10,6 +10,10 @@ namespace InvestigationGame.SystemOperation
 {
     internal class AgentExposureAnalyzer
     {
+        static PulseSensor pulsesensor = new PulseSensor();
+
+
+
         // /// <summary>
         /// Activates a sensor on the agent at a given index and checks if the agent is fully exposed.
         /// </summary>
@@ -19,6 +23,7 @@ namespace InvestigationGame.SystemOperation
         /// <returns>True if the agent has been fully exposed; otherwise, false.</returns>
         public static bool TryExposeAgentWithSensor(string SensorName, int index, FootSoldier agent)
         {
+            
             bool exposed = false;
             int counter = 0;
             switch (SensorName)
@@ -34,7 +39,14 @@ namespace InvestigationGame.SystemOperation
                     break;
 
                 case "Pulse":
-                    counter = agent.Active(new PulseSensor(), index);
+                    if (pulsesensor.IsBroken)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green; 
+                        Console.WriteLine("Sensor broke. Creating a new one...");
+                        Console.ResetColor();
+                        pulsesensor = new PulseSensor(); // Creates a new sensor
+                    }
+                    counter = agent.Active(pulsesensor, index);
                     Console.WriteLine($"You hit in {counter} / {agent.SensorWeakSpot.Count}");
                     break;
             }

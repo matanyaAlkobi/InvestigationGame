@@ -15,7 +15,7 @@ namespace InvestigationGame.Entities.Sensors
     /// </summary>
     internal class PulseSensor : Sensor
     {
-        private static int ActivateCount = 0;
+        private int ActivateCount = 0;
 
         /// <summary>
         /// Constructs a new PulseSensor with optional sensor type and name.
@@ -33,7 +33,7 @@ namespace InvestigationGame.Entities.Sensors
         /// </summary>
         /// <param name="agent">The agent to scan.</param>
         /// <returns>True if the sensor hits at the target index; otherwise, false.</returns>
-        public override bool Activate(FootSoldier agent,int index)
+        public override bool Activate(FootSoldier agent, int index)
         {
             if (ActivateCount >= 3)
             {
@@ -52,7 +52,7 @@ namespace InvestigationGame.Entities.Sensors
                 return true;
             }
             return false;
-
         }
+        public bool IsBroken => ActivateCount >= 3;
     }
 }
