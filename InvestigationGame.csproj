@@ -53,9 +53,10 @@
     <Compile Include="Entities\Sensors\ThermalSensor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SetForGame\GameInputManager.cs" />
+    <Compile Include="SystemOperation\GameInputManager.cs" />
     <Compile Include="SystemOperation\AgentExposureAnalyzer.cs" />
     <Compile Include="SystemOperation\Game.cs" />
+    <Compile Include="SystemOperation\ConsoleUI\AgentConsoleView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
