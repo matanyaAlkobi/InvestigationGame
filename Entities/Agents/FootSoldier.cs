@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using InvestigationGame.Entities.Sensors;
@@ -18,7 +19,7 @@ namespace InvestigationGame.Entities.Pepoles
         public Sensor[] SensorDamage { get; set; }
 
 
-        public FootSoldier(string rank = "FootSoldier") 
+        public FootSoldier(string rank = "FootSoldier")
         {
             this.Rank = rank;
 
@@ -31,18 +32,33 @@ namespace InvestigationGame.Entities.Pepoles
         public virtual int Active(Sensor sensor, int index)
         {
             int counter = 0;
-
-            if (sensor.Activate(this,index) &&  SensorWeakSpot[index] == sensor.SensorName)
+            ActivateAllSensors();
+            if (sensor.Activate(this, index) && SensorWeakSpot[index] == sensor.SensorName)
             {
-                    SensorDamage[index] = sensor;
+                SensorDamage[index] = sensor;
             }
-                for (int i = 0; i < SensorDamage.Length; i++)
-                {
-                    if (SensorDamage[i] != null)
-                        ++counter;
-                }
+            for (int i = 0; i < SensorDamage.Length; i++)
+            {
+                if (SensorDamage[i] != null)
+                    ++counter;
+            }
 
             return counter;
+        }
+
+
+        /// <summary>
+        /// Activates all non-null sensors in the SensorDamage array.
+        /// </summary>
+        public void ActivateAllSensors()
+        {
+            for (int i = 0; i < SensorDamage.Length; i++)
+            {
+                if (SensorDamage[i] != null)
+                {
+                    SensorDamage[i].Activate(this, i);
+                }
+            }
         }
 
 

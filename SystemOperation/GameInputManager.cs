@@ -13,7 +13,6 @@ namespace InvestigationGame.SetForGame
         // A method that will take an index and return it
         public static int GetValidSensorIndexFromUser(FootSoldier agent)
         {
-            ;
             bool check = false;
             int index;
             do
