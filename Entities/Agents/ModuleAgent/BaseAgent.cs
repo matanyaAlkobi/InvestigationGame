@@ -10,7 +10,7 @@ namespace InvestigationGame.Entities.Pepoles
 {
 
     // Creating an Iranian agent
-    internal class FootSoldier
+    internal class BaseAgent
     {
         public string Rank { get; set; }
 
@@ -19,7 +19,7 @@ namespace InvestigationGame.Entities.Pepoles
         public Sensor[] SensorDamage { get; set; }
 
 
-        public FootSoldier(string rank = "FootSoldier")
+        public BaseAgent(string rank = "FootSoldier")
         {
             this.Rank = rank;
 
@@ -60,6 +60,7 @@ namespace InvestigationGame.Entities.Pepoles
                 }
             }
         }
+
 
 
 

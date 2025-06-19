@@ -18,7 +18,7 @@ namespace InvestigationGame
         //static List<Sensor> ExistingSensors = new List<Sensor>();
         public static string[] ExistingSensors = { "Audio", "Thermal", "Pulse" };
 
-        public static List<string> SensorGenerator(FootSoldier agent)
+        public static List<string> SensorGenerator(BaseAgent agent)
         {
             int ListLength  = 0;
             List<string> SensorsList = new List<string>();
@@ -30,7 +30,12 @@ namespace InvestigationGame
             {
                 ListLength = 4;
             }
-                
+            else if (agent.Rank == "SeniorCommander")
+            {
+                ListLength = 6;
+            }
+            
+
                 for (int i = 0; i < ListLength; i++)
                 {
                     SensorsList.Add(ExistingSensors[rnd.Next(0, ExistingSensors.Count())]);

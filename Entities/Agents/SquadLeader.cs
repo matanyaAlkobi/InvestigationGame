@@ -10,20 +10,13 @@ namespace InvestigationGame.Entities.Agents
 {
 
     //  A class that handles a squadleader agent
-    internal class SquadLeader : FootSoldier ,  IAgentBehavior
+    internal class SquadLeader : BaseAgent ,  IAgentBehavior
     {
         int TurnCounter = 0;
         static Random rnd = new Random();
 
 
-        /// <summary>
-        /// Executes the specific behavior of the agent,
-        /// in this case removing an attached sensor.
-        /// </summary>
-        public void HandleBehavior()
-        {
-            RemovesAAttachSensor();
-        }
+ 
 
         /// <summary>
         /// Constructs a soldier with a default value
@@ -37,7 +30,14 @@ namespace InvestigationGame.Entities.Agents
         }
 
 
-
+        /// <summary>
+        /// Executes the specific behavior of the agent,
+        /// in this case removing an attached sensor.
+        /// </summary>
+        public void HandleBehavior()
+        {
+            RemovesAAttachSensor();
+        }
         /// <summary>
         /// Handles the logic for retaliatory sensor removal by the Iranian agent every 3 turns.
         /// If any sensors are active, one is randomly removed and a message is displayed.

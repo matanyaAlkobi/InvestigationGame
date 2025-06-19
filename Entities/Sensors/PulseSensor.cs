@@ -33,7 +33,7 @@ namespace InvestigationGame.Entities.Sensors
         /// </summary>
         /// <param name="agent">The agent to scan.</param>
         /// <returns>True if the sensor hits at the target index; otherwise, false.</returns>
-        public override bool Activate(FootSoldier agent, int index)
+        public override bool Activate(BaseAgent agent, int index)
         {
             ++ActivateCount;
             if (ActivateCount >= 3)
@@ -58,7 +58,7 @@ namespace InvestigationGame.Entities.Sensors
         /// </summary>
         /// <param name="agent">The FootSoldier instance.</param>
         /// <param name="index">The index of the broken sensor.</param>
-        private void RemoveBrokenSensors(FootSoldier agent, int index)
+        private void RemoveBrokenSensors(BaseAgent agent, int index)
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine(("Sensor has broken after 3 activations."));

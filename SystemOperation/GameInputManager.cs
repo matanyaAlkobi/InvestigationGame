@@ -11,7 +11,7 @@ namespace InvestigationGame.SetForGame
     {
 
         // A method that will take an index and return it
-        public static int GetValidSensorIndexFromUser(FootSoldier agent)
+        public static int GetValidSensorIndexFromUser(BaseAgent agent)
         {
             bool check = false;
             int index;
@@ -51,7 +51,7 @@ namespace InvestigationGame.SetForGame
         /// </summary>
         /// <param name="agent"></param>
         /// <returns> Sensor name </returns>
-        public static string GetValidSensorNameFromUser(FootSoldier agent)
+        public static string GetValidSensorNameFromUser(BaseAgent agent)
         {
             string sensorName = "";
             bool valid = false;
