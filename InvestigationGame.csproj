@@ -46,6 +46,7 @@
     <Compile Include="ConnectingSensors.cs" />
     <Compile Include="Entities\Agents\FootSoldier.cs" />
     <Compile Include="Entities\Agents\Pepole.cs" />
+    <Compile Include="Entities\Agents\SeniorCommander.cs" />
     <Compile Include="Entities\Agents\SquadLeader.cs" />
     <Compile Include="Entities\Sensors\AudioSensor.cs" />
     <Compile Include="Entities\Sensors\PulseSensor.cs" />
