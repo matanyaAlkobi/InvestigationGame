@@ -10,11 +10,20 @@ namespace InvestigationGame.Entities.Agents
 {
 
     //  A class that handles a squadleader agent
-    internal class SquadLeader : FootSoldier
+    internal class SquadLeader : FootSoldier ,  IAgentBehavior
     {
         int TurnCounter = 0;
         static Random rnd = new Random();
 
+
+        /// <summary>
+        /// Executes the specific behavior of the agent,
+        /// in this case removing an attached sensor.
+        /// </summary>
+        public void HandleBehavior()
+        {
+            RemovesAAttachSensor();
+        }
 
         /// <summary>
         /// Constructs a soldier with a default value

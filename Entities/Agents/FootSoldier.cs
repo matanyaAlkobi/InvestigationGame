@@ -32,7 +32,7 @@ namespace InvestigationGame.Entities.Pepoles
         public virtual int Active(Sensor sensor, int index)
         {
             int counter = 0;
-            ActivateAllSensors(index);
+            ActivateAllSensors();
             if (sensor.Activate(this, index) && SensorWeakSpot[index] == sensor.SensorName)
             {
                 SensorDamage[index] = sensor;
@@ -46,7 +46,11 @@ namespace InvestigationGame.Entities.Pepoles
             return counter;
         }
 
-        public void ActivateAllSensors(int index)
+
+        /// <summary>
+        /// Activates all non-null sensors in the SensorDamage array.
+        /// </summary>
+        public void ActivateAllSensors()
         {
             for (int i = 0; i < SensorDamage.Length; i++)
             {

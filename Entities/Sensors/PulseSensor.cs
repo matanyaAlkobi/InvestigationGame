@@ -53,6 +53,11 @@ namespace InvestigationGame.Entities.Sensors
         public bool IsBroken => ActivateCount >= 3;
 
 
+        /// <summary>
+        /// Removes a broken sensor from the agent and displays a message.
+        /// </summary>
+        /// <param name="agent">The FootSoldier instance.</param>
+        /// <param name="index">The index of the broken sensor.</param>
         private void RemoveBrokenSensors(FootSoldier agent, int index)
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
