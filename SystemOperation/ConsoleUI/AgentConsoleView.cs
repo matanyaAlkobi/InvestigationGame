@@ -7,15 +7,31 @@ using InvestigationGame.Entities.Pepoles;
 
 namespace InvestigationGame.SystemOperation.GUI
 {
+
+    /// <summary>
+    /// Provides console-based UI methods for displaying messages related to agents.
+    /// </summary>
     internal static class AgentConsoleView
     {
 
+
+        /// <summary>
+        /// Displays a welcome message with the agent's rank in green.
+        /// </summary>
+        /// <param name="agent">The agent whose rank is shown.</param>
         public static void ShowWelcomeMessage(FootSoldier agent)
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Welcome to the level of {agent.Rank}");
             Console.ResetColor();
         }
+
+
+        /// <summary>
+        /// Displays a success message and promotion notice in blue.
+        /// </summary>
+        /// <param name="agent">The agent whose rank is referenced.</param>
+        public static void DisplaySuccessMessage(FootSoldier agent)
 
         public static void DisplaySuccessMessage(FootSoldier agent)
         {

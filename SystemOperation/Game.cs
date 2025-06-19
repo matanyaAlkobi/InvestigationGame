@@ -70,12 +70,14 @@ namespace InvestigationGame.SystemOperation
         /// <param name="agent">The agent to evaluate.</param>
         private void HandleAgentBehavior(FootSoldier agent)
         {
-            if (agent is SquadLeader squad)
+            if (agent is IAgentBehavior behaviorAgent)
             {
-                squad.RemovesAAttachSensor();
+                behaviorAgent.HandleBehavior();
             }
 
         }
+
+
 
     }
 }
