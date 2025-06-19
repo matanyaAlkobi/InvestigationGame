@@ -90,7 +90,6 @@ namespace InvestigationGame.Entities.Agents
         /// </summary>
         private void TrackTurnsAndResetSensors()
         {
-            ++TurnCounter;
             if (TurnCounter % 20 == 0)
             {
                 if (!HasActiveSensors()) return;
