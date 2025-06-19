@@ -34,6 +34,9 @@ namespace InvestigationGame
             {
                 ListLength = 6;
             }
+            else if (agent.Rank == "OrganizationLeader")
+            {
+                ListLength = 8;            }
             
 
                 for (int i = 0; i < ListLength; i++)

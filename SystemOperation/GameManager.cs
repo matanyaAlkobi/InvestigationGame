@@ -17,9 +17,10 @@ namespace InvestigationGame.SystemOperation
             //SeniorCommander CommandorAgent = new SeniorCommander();
 
             InvestigationGame game = new InvestigationGame();
-            game.Play(new BaseAgent());
-            game.Play(new SquadLeader());
-            game.Play(new SeniorCommander());
+            //game.Play(new BaseAgent());
+            //game.Play(new SquadLeader());
+            //game.Play(new SeniorCommander());
+            game.Play(new OrganizationLeader());
 
         }
 

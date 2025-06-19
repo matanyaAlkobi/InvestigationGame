@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Agents\OrganizationLeader.cs" />
     <Compile Include="Service\ConnectingSensors.cs" />
     <Compile Include="Entities\Agents\ModuleAgent\BaseAgent.cs" />
     <Compile Include="Entities\pepole\Pepole.cs" />
