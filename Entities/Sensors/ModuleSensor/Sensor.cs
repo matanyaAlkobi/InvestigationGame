@@ -21,7 +21,7 @@ namespace InvestigationGame.Entities.Sensors
 
 
         // Enabling the sensor checks whether it can be enabled.
-        public virtual bool Activate(FootSoldier agent,int index)
+        public virtual bool Activate(BaseAgent agent,int index)
         {
             Console.WriteLine($"Sensor {SensorName} is Active ");
             if (agent.SensorWeakSpot.Contains(SensorName))

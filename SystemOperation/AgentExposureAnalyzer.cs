@@ -17,7 +17,7 @@ namespace InvestigationGame.SystemOperation
         /// <param name="index">The index in the agent's sensor array to activate.</param>
         /// <param name="agent">The IranianAgent on which the sensor is activated.</param>
         /// <returns>True if the agent has been fully exposed; otherwise, false.</returns>
-        public static bool TryExposeAgentWithSensor(string SensorName, int index, FootSoldier agent)
+        public static bool TryExposeAgentWithSensor(string SensorName, int index, BaseAgent agent)
         {
             
             bool exposed = false;
@@ -39,6 +39,7 @@ namespace InvestigationGame.SystemOperation
                     counter = agent.Active(new PulseSensor(), index);
                     Console.WriteLine($"You hit in {counter} / {agent.SensorWeakSpot.Count}");
                     break;
+
             }
             if (counter == agent.SensorWeakSpot.Count)
             {

@@ -15,11 +15,10 @@ namespace InvestigationGame
     {
         static void Main(string[] args)
         {
-            FootSoldier agent = new FootSoldier();
-            SquadLeader LeaderAgent = new SquadLeader();
-            Game game = new Game();
-            game.Play(agent);
-            game.Play(LeaderAgent);
+            GameManager gameManager = new GameManager();
+            gameManager.StartInvestigationGame();
+
+
         }
     }
 }
